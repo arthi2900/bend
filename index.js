@@ -37,7 +37,7 @@ mongoose.connect(process.env.MONGO_URL, {
 });
 
 const upload = multer({ storage: storage });
-app.post("api/upload", upload.single("file"), (req, res) => {
+app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
 });
 app.use("/api/auth", authRoute);
