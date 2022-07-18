@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGO_URL, {
     cb(null, "images");
   },
   filename: (req, file, cb) => {
-    cb(null, req.body.name);
+    cb(null, "1.jpg");
   },
 });
 
