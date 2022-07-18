@@ -30,16 +30,17 @@ mongoose.connect(process.env.MONGO_URL, {
   .catch((err) => console.log(err));
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
+  destination: (req,file, cb) => {
     cb(null, "images");
   },
-  filename: (req, file, cb) => {
-    cb(null, req.body.name);
+  filename: (req,file, cb) => {
+    cb(null, "index.jpg");
   },
 });
 
 const upload = multer({ storage: storage });
-app.post("/api/upload", upload.single("file"), (req, res) => {
+app.post("/api/upload", upload.single("file"),
+(req, res) => {
   res.status(200).json("File has been uploaded");
 });
 
