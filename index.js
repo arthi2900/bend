@@ -37,7 +37,7 @@ app.use("/images",express.static(path.join(__dirname,"/images")))
 });
 
 const upload = multer({ storage: storage });
-app.post("/upload", upload.single("file"), (req, res) => {
+app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
 });
 app.use("/api/auth", authRoute);
